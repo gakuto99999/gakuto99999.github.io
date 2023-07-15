@@ -1,15 +1,13 @@
 <meta charset="utf-8"/>
 <html>
 <head>
-	<h1>現在の時刻</h1>
-  <p id="current-time"></p>
 
-  <title>changg</title>
-  <style>
-    #image-container {
-      display: inline-block;
-      position: relative;
-    }
+	<title>changg</title>
+	<style>
+	  #image-container {
+		display: inline-block;
+		position: relative;
+	  }
 
 /* ここも部屋の数に応じて増やさなければいけない top: y, left: x*/
         #overlay212 {
@@ -144,6 +142,31 @@
     </div>
 
 <script>
+
+function getDayOfWeek() {
+            const days = ["日", "月", "火", "水", "木", "金", "土"];
+            const currentDay = new Date().getDay();
+            return days[currentDay];
+        }
+
+        function getCurrentTime() {
+            const currentTime = new Date();
+            const hours = currentTime.getHours();
+            const minutes = currentTime.getMinutes();
+            return `${hours}:${minutes}`;
+        }
+
+        function displayDayAndTime() {
+            const dayOfWeek = getDayOfWeek();
+            const currentTime = getCurrentTime();
+            const displayElement = document.createElement("p");
+            displayElement.textContent = `曜日: ${dayOfWeek}, 時間: ${currentTime}`;
+            document.body.appendChild(displayElement);
+        }
+
+        setInterval(displayDayAndTime, 60000); // 60秒ごとに更新
+
+
 
 function showTime() {
       var now = new Date();
@@ -291,34 +314,6 @@ var zero_room = [0,0,0,0,0,0,0,0,0,0,0,0]//ここもzeros関数を使って教�
       //曜日>>時間>>使用したい教室データ..(321, 325)>>for{if{}}で使いたいインスタンス使用する。それ以外の教室インスタンスは白のオーバーレイを使用
 
       // 教室ごとに増やさなければいけない
-
-
-
-	  function getDayOfWeek() {
-            const days = ["日", "月", "火", "水", "木", "金", "土"];
-            const currentDay = new Date().getDay();
-            return days[currentDay];
-        }
-
-        function getCurrentTime() {
-            const currentTime = new Date();
-            const hours = currentTime.getHours();
-            const minutes = currentTime.getMinutes();
-            return `${hours}:${minutes}`;
-        }
-
-        function changeColor() {
-            // コンソールログから曜日と時間を取得して表示
-            const dayOfWeek = getDayOfWeek();
-            const currentTime = getCurrentTime();
-            console.log("曜日:", dayOfWeek);
-            console.log("時間:", currentTime);
-
-            // 以下、色の変更処理
-            // 以下省略
-        }
-
-
 
 if (zero_room[0] == 1) {
 	 overlay212.style.backgroundColor = "rgba(255, 0, 0, 0.5)";
