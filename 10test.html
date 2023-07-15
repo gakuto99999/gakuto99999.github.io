@@ -294,6 +294,32 @@ var zero_room = [0,0,0,0,0,0,0,0,0,0,0,0]//ここもzeros関数を使って教�
 
 
 
+	  function getDayOfWeek() {
+            const days = ["日", "月", "火", "水", "木", "金", "土"];
+            const currentDay = new Date().getDay();
+            return days[currentDay];
+        }
+
+        function getCurrentTime() {
+            const currentTime = new Date();
+            const hours = currentTime.getHours();
+            const minutes = currentTime.getMinutes();
+            return `${hours}:${minutes}`;
+        }
+
+        function changeColor() {
+            // コンソールログから曜日と時間を取得して表示
+            const dayOfWeek = getDayOfWeek();
+            const currentTime = getCurrentTime();
+            console.log("曜日:", dayOfWeek);
+            console.log("時間:", currentTime);
+
+            // 以下、色の変更処理
+            // 以下省略
+        }
+
+
+
 if (zero_room[0] == 1) {
 	 overlay212.style.backgroundColor = "rgba(255, 0, 0, 0.5)";
 	 } else {;
@@ -354,6 +380,7 @@ if (zero_room[0] == 1) {
 	 } else {;
 	 overlay213.style.backgroundColor = "rgba(255, 255, 255, 0.5)";
 	 }
+	 
     }
 	setInterval(changeColor, 6000); // 60秒ごとに更新
 
