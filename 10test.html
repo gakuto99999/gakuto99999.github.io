@@ -3,11 +3,11 @@
 <head>
 
 	<title>changg</title>
-	<style>
-	  #image-container {
-		display: inline-block;
-		position: relative;
-	  }
+  <style>
+    #image-container {
+      display: inline-block;
+      position: relative;
+    }
 
 /* ここも部屋の数に応じて増やさなければいけない top: y, left: x*/
         #overlay212 {
@@ -139,6 +139,11 @@
 	 <div id="overlay117"></div>
 	 <div id="overlay213"></div>
 
+
+
+	 <div id="current-time"></div> 
+    <div id="current-day"></div>
+
     </div>
 
 <script>
@@ -159,32 +164,14 @@ function getDayOfWeek() {
         function displayDayAndTime() {
             const dayOfWeek = getDayOfWeek();
             const currentTime = getCurrentTime();
-            const displayElement = document.createElement("p");
-            displayElement.textContent = `曜日: ${dayOfWeek}, 時間: ${currentTime}`;
-            document.body.appendChild(displayElement);
+            const dayElement = document.getElementById("current-day");
+            const timeElement = document.getElementById("current-time");
+            dayElement.textContent = `曜日: ${dayOfWeek}`;
+            timeElement.textContent = `時間: ${currentTime}`;
         }
 
         setInterval(displayDayAndTime, 60000); // 60秒ごとに更新
 
-
-
-function showTime() {
-      var now = new Date();
-      var hours = now.getHours();
-      var minutes = now.getMinutes();
-      var seconds = now.getSeconds();
-      
-      // 0埋めで2桁表示にする
-      hours = ('0' + hours).slice(-2);
-      minutes = ('0' + minutes).slice(-2);
-      seconds = ('0' + seconds).slice(-2);
-      
-      var timeString = hours + ':' + minutes + ':' + seconds;
-      document.getElementById('current-time').textContent = timeString;
-    }
-    
-    // 1秒ごとにshowTime関数を実行する
-    setInterval(showTime, 1000);
 
 // 画像の一部の色を変える関数
     // ここで階層データを作りたい ex 曜日[時限[教室番号]]　　ゆくゆくはExcelのデータから自動的にとりた
