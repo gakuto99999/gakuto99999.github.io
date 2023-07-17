@@ -125,6 +125,7 @@
     <div id="image-container">
         <img id="image" src="10.jpg" alt="">
 
+	 <div id="result"></div>
      <div id="room10">
      <div id="overlay212"></div>
 	 <div id="overlay211"></div>
@@ -138,8 +139,6 @@
 	 <div id="overlay201"></div>
 	 <div id="overlay117"></div>
 	 <div id="overlay213"></div>
-
-     <div id="result"></div>
 
     </div>
 
@@ -276,9 +275,7 @@ var zero_room = [0,0,0,0,0,0,0,0,0,0,0,0]//ここもzeros関数を使って教�
 
 
       var resultElement = document.getElementById("result");
-resultElement.textContent = YOU[Days];
-resultElement.textContent += ", " + (Class_time+1);
-resultElement.textContent += ", " + currentTime;
+resultElement.textContent = YOU[Days] + ", " + (Class_time+1) + ", " + currentTime;
 
 
 
